@@ -1,1 +1,65 @@
-gretgds
+context VkTables {
+
+    /*@@layout{"layoutInfo":{"x":-420,"y":-116.5}}*/
+    entity TWITTER_STREAM {
+        key Id                   : Integer64;
+            ScreenName           : String(256);
+        key Tweet                : String(256);
+            Source               : String(256);
+            Truncated            : Integer;
+            InReplyToStatusId    : Integer64;
+            InReplyToUserId      : Integer64;
+            InReplyToScreenName  : String(256);
+            Favorited            : Integer;
+            Retweeted            : Integer;
+            FavoriteCount        : Integer;
+            Retweet              : Integer;
+            RetweetCount         : Integer;
+            RetweetedByMe        : Integer;
+            CurrentUserRetweetId : Integer64;
+            PossiblySensitive    : Integer;
+            isoLanguageCode      : String(256);
+            CreatedAt            : UTCTimestamp;
+            Latitude             : Double;
+            Longtitude           : Double;
+            Country              : String(256);
+            Place_name           : String(256);
+            Place_type           : String(256);
+            UserId               : Integer64;
+            UserName             : String(256);
+            UserUrl              : String(256);
+    };
+
+    /*@@layout{"layoutInfo":{"x":175,"y":-263}}*/
+    entity TWITTER_STREAM_RESULT {
+        key Id                   : Integer64;
+            ScreenName           : String(256);
+        key Tweet                : String(256);
+            Source               : String(256);
+            Truncated            : Integer;
+            InReplyToStatusId    : Integer64;
+            InReplyToUserId      : Integer64;
+            InReplyToScreenName  : String(256);
+            Favorited            : Integer;
+            Retweeted            : Integer;
+            FavoriteCount        : Integer;
+            Retweet              : Integer;
+            RetweetCount         : Integer;
+            RetweetedByMe        : Integer;
+            CurrentUserRetweetId : Integer64;
+            PossiblySensitive    : Integer;
+            isoLanguageCode      : String(256);
+            CreatedAt            : UTCTimestamp;
+            Latitude             : Double;
+            Longtitude           : Double;
+            Country              : String(256);
+            Place_name           : String(256);
+            Place_type           : String(256);
+            UserId               : Integer64;
+            UserName             : String(256);
+            UserUrl              : String(256);
+        key Date                 : LocalDate;
+        key Time                 : LocalTime;
+        key Full_Timestamp       : UTCTimestamp;
+    };
+};

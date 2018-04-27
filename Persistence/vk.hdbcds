@@ -1,0 +1,44 @@
+context TwitterTables {
+
+    /*@@layout{"layoutInfo":{}}*/
+    entity VK_STREAM {
+        key AUTHOR_ID                 : Integer;
+            AUTHOR_PLATFORM           : Integer;
+            CREATION_TIME             : Integer64;
+            POST_OWNER_ID             : Integer;
+        key POST_ID                   : Integer64;
+            COMMENT_ID                : Integer64;
+            EVENT_TYPE                : String(30);
+            EVENT_URL                 : String(1024);
+            EVENT_TAGS                : String(1024);
+            EVENT_TEXT                : String(2048);
+            SHARED_POST_AUTHOR_ID     : Integer;
+            SHARED_POST_CREATION_TIME : Integer64;
+            SHARED_POST_TEXT          : String(2048);
+            SHARED_POST_ID            : Integer64;
+            TAG_LIST                  : String(1024);
+    };
+
+    /*@@layout{"layoutInfo":{}}*/
+    entity VK_STREAM_RESULT {
+        key AUTHOR_ID                 : Integer;
+            AUTHOR_PLATFORM           : Integer;
+            CREATION_TIME             : Integer64;
+            POST_OWNER_ID             : Integer;
+        key POST_ID                   : Integer64;
+            COMMENT_ID                : Integer64;
+            EVENT_TYPE                : String(30);
+            EVENT_URL                 : String(1024);
+            EVENT_TAGS                : String(1024);
+            EVENT_TEXT                : String(2048);
+            SHARED_POST_AUTHOR_ID     : Integer;
+            SHARED_POST_CREATION_TIME : Integer64;
+            SHARED_POST_TEXT          : String(2048);
+            SHARED_POST_ID            : Integer64;
+            TAG_LIST                  : String(1024);
+            VALUE                     : Integer;
+            DATE                      : LocalDate;
+            TIME                      : LocalTime;
+            FULL_TIMESTAMP            : String(10);
+    };
+};   
