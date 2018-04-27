@@ -1,0 +1,28 @@
+ID: yatiny
+_schema-version: '2.0'
+version: 0.0.1
+modules:
+  - name: node
+    type: nodejs
+    path: node
+    requires:
+      - name: hdi-container
+    provides:
+      - name: node_api
+        properties:
+          url: '${default-url}'
+  - name: ui
+    type: html5
+    path: ui
+    requires:
+      - name: node_api
+        group: destinations
+        properties:
+          name: core-backend
+          url: '~{url}'
+          forwardAuthToken: true
+resources:
+  - name: hdi-container
+    properties:
+      hdi-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container

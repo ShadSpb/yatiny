@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+<title>ui</title>
+<style type="text/css">
+	.textBig {
+		font-size: 1rem !important;
+	}
+</style>
+<!-- 1.) Load SAPUI5 (from a remote server), select theme and control library -->
+<script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+	id="sap-ui-bootstrap" 
+	data-sap-ui-libs="sap.m, sap.viz"
+	data-sap-ui-compatVersion="edge"
+	data-sap-ui-theme="sap_bluecrystal"
+	data-sap-ui-preload="async"
+	data-sap-ui-resourceroots='{"yatiny.ui.resources": "./"}'
+>
+</script>
+
+<script>
+	sap.ui.getCore().attachInit(function () {
+		new sap.ui.core.ComponentContainer({
+			name : "yatiny.ui.resources"
+		}).placeAt("content");
+	});
+</script>
+
+</head>
+<body class="sapUiBody" id="content">
+</body>
+</html>

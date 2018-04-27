@@ -1,0 +1,39 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="yatiny.ui.resources.controller.CampaignsPage">
+	<Page title="SAP Social Network Analyzer VT2/3">
+		<customHeader>
+			<Toolbar>
+				<Image height="48px" src="../image/logo.png"></Image>
+				<Title text="SAP Social Network Analyzer VT2/3"></Title>
+				<ToolbarSpacer></ToolbarSpacer>
+				<Button icon="sap-icon://question-mark"/>
+				<Button press="onSettingsPress" icon="sap-icon://action-settings"/>
+			</Toolbar>
+		</customHeader>
+		<content>
+			<List id="campaigns_list" items="{ path: '/campaigns' }" width="100%">
+				<headerToolbar>
+					<Toolbar>
+						<content>
+							<Title text="Campaigns" level="H2"/>
+							<ToolbarSpacer/>
+							<Button press="onAddCampaignPress" width="48px" icon="sap-icon://add"/>
+						</content>
+					</Toolbar>
+				</headerToolbar>
+				<ObjectListItem press="onCampaignPress" type="Active" title="{name}"
+					number="{parts: ['twitterMentions', 'vkMentions'], formatter: '.formatMentions'}" numberUnit="mentions" intro="{sources}" id="__item4">
+					<attributes>
+						<ObjectAttribute text="{description}" id="__attribute1"/>
+					</attributes>
+					<firstStatus>
+						<ObjectStatus text="{parts: ['startTime', 'endTime'], formatter: '.formatStatus'}"/>
+					</firstStatus>
+					<secondStatus>
+						<ObjectStatus text="{parts: ['startTime', 'endTime'], formatter: '.formatTwoDates'}"/>
+					</secondStatus>
+				</ObjectListItem>
+			</List>
+		</content>
+	</Page>
+</mvc:View>

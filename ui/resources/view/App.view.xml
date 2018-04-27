@@ -1,0 +1,5 @@
+<View xmlns="sap.m" height="100%">
+	<Shell>
+		<App id="rootControl"></App>
+	</Shell>
+</View>

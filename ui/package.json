@@ -1,0 +1,13 @@
+{
+	"name": "ui-approuter",
+	"engines": {
+		"node": ">=6.0.0"
+	},
+	"dependencies": {
+		"@sap/approuter": "2.7.1",
+		"moment": "2.*"
+	},
+	"scripts": {
+		"start": "node node_modules/@sap/approuter/approuter.js"
+	}
+}

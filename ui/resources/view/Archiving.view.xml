@@ -1,0 +1,46 @@
+<mvc:View controllerName="yatiny.ui.resources.controller.Archiving" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<Table
+		id="archiving_table"
+		items="{ path: '/config', sorter: { path: 'name' } }">
+		<headerToolbar>
+			<Toolbar>
+				<Title text="Archiving" level="H2"/>
+			</Toolbar>
+		</headerToolbar>
+		<columns>
+			<Column vAlign="Middle" width="12rem">
+				<Text text="Source"/>
+			</Column>
+			<Column width="8rem">
+				<Text text="Days to backup"/>
+			</Column>
+			<Column vAlign="Middle" hAlign="Start" width="14rem">
+				<Text text="Status"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<Text text="{name}"/>
+					<Input 
+						type="Number"
+						id="archiving_input"
+						valueStateText="Days must be greater than 0"
+						value="{
+							path : 'daysToBackup',
+							type : 'sap.ui.model.type.Integer',
+							constraints : {
+								minimum: 0
+							}
+						}"
+						liveChange="onArchivationItemLiveChange" 
+						valueLiveUpdate="true" 
+						placeholder="Days to backup"/>
+					<ObjectStatus class="sapUiMediumMarginBegin" text="{path:'status', formatter:'.statusTextFormatter'}"
+						state="{path:'status', formatter:'.statusColorFormatter'}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+	<Button text="Save" press="saveArchivationParams"></Button>
+</mvc:View>

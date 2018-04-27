@@ -1,0 +1,54 @@
+<mvc:View
+	controllerName="yatiny.ui.resources.controller.Welcome"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<FlexBox  alignItems="Center" justifyContent="Center">
+		
+		<items>
+			<FlexBox direction="Column" backgroundDesign="Solid">
+				<items>
+					<Text class="sapUiSmallMargin textBig" text="Our application will help you to know your customers better! Just configure your consumer opinions collection from Twitter, Facebook and VK, choose the desired keywords and schedule of data collection. Then start data collection and you’ll have all you need to see, what is the sense of your customers on the products! Our interactive graph will show you desired data sliced by time and brand, visually comparing it with the enterprise sales data." />
+					<List
+						id="ProductList"
+						includeItemInSelection="true">
+						<StandardListItem
+							title="Initial setup"
+							description="Configure data collection and archiving in two steps"
+							iconDensityAware="false"
+							icon="sap-icon://step"
+							iconInset="false"
+							type="Active"
+							press="onInitialSetupPress"/>
+						<StandardListItem
+							title="Configuration"
+							description="Configure consumer data collection from Social Networks"
+							iconDensityAware="false"
+							icon="sap-icon://number-sign"
+							iconInset="false"
+							type="Active"
+							press="onConfigurationPress"/>
+						<StandardListItem
+							title="Archiving"
+							description="Configure archiving of collected data to HADOOP"
+							iconDensityAware="false"
+							icon="sap-icon://action-settings" 
+							iconInset="false"
+							type="Active"
+							press="onArchivationPress"/>
+						<StandardListItem
+							title="Report"
+							description="Explore consumer opinions on your brands"
+							icon="sap-icon://line-chart"
+							iconDensityAware="false"
+							iconInset="false"
+							type="Active"
+							press="onChartPress"/>
+					</List>
+				</items>
+			</FlexBox>
+			
+		</items>
+	</FlexBox>
+	
+</mvc:View>

@@ -1,0 +1,50 @@
+<mvc:View height="100%" xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	controllerName="yatiny.ui.resources.controller.AddCampaignPage" xmlns="sap.m" xmlns:layout="sap.ui.layout">
+	<Page id="page" title="New campaign" showNavButton="true" navButtonPress="onBack">
+		<VBox class="sapUiSmallMargin">
+			<f:SimpleForm id="SimpleFormChange480_12120" editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="4" labelSpanM="12"
+				labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="1"
+				singleContainerFullSize="false">
+				<f:content>
+					<core:Title text="General info"/>
+					<Label text="Name"/>
+					<Input value="{/name}"/>
+					<Label text="Description"/>
+					<TextArea value="{/description}"></TextArea>
+					<Label text="Start date" labelFor="startPicker"/>
+					<DateTimePicker id="startPicker" change="onStartDateChange"
+						value="{path:'/startDate', type:'sap.ui.model.type.DateTime', formatOptions: { style: 'medium', strictParsing: true}}"/>
+					<Label text="End date" labelFor="endPicker"/>
+					<DateTimePicker id="endPicker" minDate="{/startDate}"
+						value="{path:'/endDate', type:'sap.ui.model.type.DateTime', formatOptions: { style: 'medium', strictParsing: true}}"/>
+					<core:Title text="Social networks"/>
+					<!--<Text text="What words or #hashtags should we search? (Case-sensetive)" class="sapUiSmallMarginBottom sapUiSmallMarginTop"></Text>-->
+					<FlexBox direction="Column">
+						<Text text="Where should we search the words?"/>
+						<FlexBox direction="Row" class="sapUiSmallMarginBottom">
+							<CheckBox text="Twitter" selected="{/sources/twitter}"/>
+							<CheckBox text="VK" selected="{/sources/vk}" class="sapUiMediumMarginBegin"/>
+						</FlexBox>
+						<Text text="Words and hashtags to search"/>
+						<FlexBox direction="Row" class="sapUiSmallMarginBottom">
+							<Input id="newHashtag" type="Text" placeholder="#sap20!8 or SAP" valueStateText="Hashtag must not be empty" liveChange="onEditHashtag"
+								value="{ path : '/newHashtag', type : 'sap.ui.model.type.String', constraints : { minLength: 1 } }" valueLiveUpdate="true"/>
+							<Button text="Add" press="addHashtag"></Button>
+						</FlexBox>
+						<List id="list" mode="Delete" delete="handleDelete" enableBusyIndicator="true" items="{ path: '/hashtags' }">
+							<StandardListItem title="{name}"/>
+						</List>
+					</FlexBox>
+				</f:content>
+			</f:SimpleForm>
+		</VBox>
+		<footer>
+			<Bar>
+				<contentRight>
+					<Button id="add" text="Add" type="Emphasized" press="handleSave"/>
+					<Button id="cancel" text="Cancel" press="onBack"/>
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

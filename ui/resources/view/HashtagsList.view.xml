@@ -1,0 +1,55 @@
+<mvc:View
+	controllerName="yatiny.ui.resources.controller.HashtagsList"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<Label text="When to start data collection" labelFor="startPicker" />
+	<DateTimePicker
+			id="startPicker"
+			minDate="{/minDate}"
+			change="onStartDateChange"
+			value="{path:'/startDate', type:'sap.ui.model.type.DateTime', formatOptions: { style: 'medium', strictParsing: true}}"
+			/>
+	<Label text="When to end data collection" labelFor="endPicker" />
+	<DateTimePicker
+			id="endPicker"
+			minDate="{/startDate}"
+			value="{path:'/endDate', type:'sap.ui.model.type.DateTime', formatOptions: { style: 'medium', strictParsing: true}}"
+			/>
+	<Text text="What words or #hashtags should we search? (Case-sensetive)" class="sapUiSmallMarginBottom sapUiSmallMarginTop"></Text>
+	<FlexBox>
+		<Input 
+			id="newHashtag"
+			type="Text"
+			placeholder="#sap20!8 or SAP"
+			valueStateText="Hashtag must not be empty"
+			liveChange="onEditHashtag" 
+			value="{
+				path : '/newHashtag',
+				type : 'sap.ui.model.type.String',
+				constraints : {
+					minLength: 1
+				}
+			}"
+			valueLiveUpdate="true"
+		/>
+		<Button text="Add" press="addHashtag"></Button> 
+	</FlexBox>
+	
+	<List
+		id="list"
+		mode="Delete"
+		delete="handleDelete"
+		enableBusyIndicator="true"
+		headerText="Words and hashtags to search"
+		width="50%"
+		items="{
+			path: '/hashtags'
+		}" >
+		<StandardListItem
+			title="{name}"/>
+	</List>
+	<Button text="Save" press="saveHashtags"></Button>
+	<Text text="Data is not saved" class="sapUiSmallMarginBottom sapUiSmallMarginTop" visible="{= !${/hashtagsSaved}}"></Text>
+	<Text text="Data is saved" class="sapUiSmallMarginBottom sapUiSmallMarginTop" visible="{= ${/hashtagsSaved}}"></Text>
+	
+</mvc:View>

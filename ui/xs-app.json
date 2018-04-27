@@ -1,0 +1,22 @@
+{
+	"welcomeFile": "index.html",
+	"authenticationMethod": "none",
+	"routes": [{
+		"source": "/data",
+		"destination": "core-backend",
+		"csrfProtection": false
+	}, {
+		"source": "/hashtags",
+		"destination": "core-backend",
+		"csrfProtection": false
+	}, {
+		"source": "/archiving",
+		"destination": "core-backend",
+		"csrfProtection": false
+	}, {
+		"source": "/campaigns",
+		"destination": "core-backend",
+		"csrfProtection": false
+	}
+	]
+}

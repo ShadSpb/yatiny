@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+  	"@sap/hdbext": "4.*",
+  	"express": "4.15.*",
+  	"body-parser": "1.17.1",
+  	"camelcase": "1.2.1",
+  	"lodash": "4.17.*",
+  	"asyncawait": "1.0.*"
+  },
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "gulp-replace": "0.5.4",
+    "jasmine-reporters": "2.1.1",
+    "gulp-jasmine": "2.4.1",
+    "gulp-istanbul": "1.1.1"
+  },
+  "files": [],
+  "main": "server.js",
+  "name": "node",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node ./node_modules/gulp/bin/gulp test",
+    "test-coverage": "node ./node_modules/gulp/bin/gulp test-coverage"
+  },
+  "engines": {
+    "node": "6.*"
+  },
+  "version": "1.0.0"
+}

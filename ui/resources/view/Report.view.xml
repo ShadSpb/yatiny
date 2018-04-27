@@ -1,0 +1,50 @@
+<mvc:View displayBlock="true" xmlns="sap.m" xmlns:viz="sap.viz.ui5.controls" xmlns:layout="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:viz.data="sap.viz.ui5.data" xmlns:commons="sap.suite.ui.commons"
+	xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form" xmlns:u="sap.ui.unified" controllerName="yatiny.ui.resources.controller.Chart">
+	<layout:FixFlex id='chartFixFlex' minFlexSize="640">
+		<layout:flexContent>
+			<commons:ChartContainer id="chartContainer" showFullScreen="true" autoAdjustHeight="true" showLegend="true" title="Data source statistics">
+				<commons:toolbar>
+					<OverflowToolbar id="appToolbar">
+						<ToolbarSpacer/>
+						<Select id="sourceSelector" items="{ path: '/sources' }" change="onSourceChanged">
+							<core:ListItem key="{name}" text="{name}"/>
+						</Select>
+						<DateRangeSelection id="DRS1" width="30%" change="onDateChange" dateValue="{/filterFrom}" secondDateValue="{/filterTo}"/>
+						<commons:ChartContainerToolbarPlaceholder></commons:ChartContainerToolbarPlaceholder>
+					</OverflowToolbar>
+				</commons:toolbar>
+				<commons:content>
+					<commons:ChartContainerContent icon="sap-icon://line-chart" title="Line Chart">
+						<commons:content>
+							<viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}" height='100%' width="100%" vizType='dual_timeseries_combination'>
+								<viz:dataset>
+									<viz.data:FlattenedDataset data="{/currentSource/data}">
+										<viz.data:dimensions>
+											<viz.data:DimensionDefinition name="Date" value="{date}" dataType="date"/>
+										</viz.data:dimensions>
+										<viz.data:measures>
+											<!--<viz.data:MeasureDefinition name="All" value="{all}"/>-->
+											<viz.data:MeasureDefinition name="Positive" value="{positive}"/>
+											<viz.data:MeasureDefinition name="Neutral" value="{neutral}"/>
+											<viz.data:MeasureDefinition name="Negative" value="{negative}"/>
+											<viz.data:MeasureDefinition name="Sales" value="{sales}"/>
+										</viz.data:measures>
+									</viz.data:FlattenedDataset>
+								</viz:dataset>
+								<viz:feeds>
+									<viz.feeds:FeedItem id='valueAxisFeedSales' uid="valueAxis" type="Measure" values="Sales"/>
+									<viz.feeds:FeedItem id='valueAxisFeedPositive' uid="valueAxis2" type="Measure" values="Positive"/>
+									<viz.feeds:FeedItem id='valueAxisFeedNeutral' uid="valueAxis2" type="Measure" values="Neutral"/>
+									<viz.feeds:FeedItem id='valueAxisFeedNegative' uid="valueAxis2" type="Measure" values="Negative"/>
+									<!--<viz.feeds:FeedItem id='valueAxisFeedAll' uid="valueAxis2" type="Measure" values="All"/>-->
+									<viz.feeds:FeedItem id='categoryAxisFeed' uid="timeAxis" type="Dimension" values="Date"/>
+								</viz:feeds>
+							</viz:VizFrame>
+						</commons:content>
+					</commons:ChartContainerContent>
+				</commons:content>
+			</commons:ChartContainer>
+		</layout:flexContent>
+	</layout:FixFlex>
+</mvc:View>

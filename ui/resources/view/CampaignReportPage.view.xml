@@ -1,0 +1,62 @@
+<core:View xmlns:core="sap.ui.core" xmlns="sap.uxap" xmlns:layout="sap.ui.layout" xmlns:m="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:forms="sap.ui.layout.form" height="100%" controllerName="yatiny.ui.resources.controller.CampaignReportPage">
+	<m:Page title="Campaign" titleLevel="H2" class="sapUiContentPadding" showNavButton="true" navButtonPress="onBack">
+		<m:content>
+			<ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true" useIconTabBar="true" showTitleInHeaderContent="false">
+				<headerTitle>
+					<ObjectPageHeader objectTitle="{/campaign/name}" objectSubtitle="{/campaign/sources}">
+						<actions>
+							<ObjectPageHeaderActionButton text="Edit" hideIcon="true" hideText="false" press="onEditCampaign"/>
+							<ObjectPageHeaderActionButton text="Delete" hideIcon="true" hideText="false" press="onDeleteCampaign"/>
+						</actions>
+					</ObjectPageHeader>
+				</headerTitle>
+				<headerContent>
+					<layout:VerticalLayout>
+						<m:Label text="{parts: ['/campaign/startTime', '/campaign/endTime'], formatter: '.formatTwoDates'}"/>
+						<m:Label text="{/campaign/controlWords}"/>
+					</layout:VerticalLayout>
+					<layout:VerticalLayout>
+						<m:Text text="{/campaign/description}"/>
+					</layout:VerticalLayout>
+				</headerContent>
+				<!--<Label text="product is marketed" visible="{= ${marketed} === true}"/>-->
+				<sections>
+					<ObjectPageSection id="info" title="Info">
+						<subSections>
+							<ObjectPageSubSection id="goalsSS1">
+								<blocks>
+									<forms:SimpleForm maxContainerCols="2" layout="ResponsiveGridLayout" width="100%">
+										<core:Title text="General information"/>
+										<m:Label text="Name"/>
+										<m:Text text="{/campaign/name}"/>
+										<m:Label text="Period"/>
+										<m:Text text="{parts: ['/campaign/startTime', '/campaign/endTime'], formatter: '.formatTwoDates'}"/>
+										<m:Label text="Description"/>
+										<m:Text text="{/campaign/description}"/>
+									</forms:SimpleForm>
+									<forms:SimpleForm maxContainerCols="2" layout="ResponsiveGridLayout" width="100%">
+										<core:Title text="Data sources information"/>
+										<m:Label text="Sources"/>
+										<m:Text text="{/campaign/sources}"/>
+										<m:Label text="Tracked words"/>
+										<m:Text text="{/campaign/controlWords}"/>
+									</forms:SimpleForm>
+								</blocks>
+							</ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+					<ObjectPageSection id="employment" title="Charts">
+						<subSections>
+							<ObjectPageSubSection id="employmentSS1">
+								<blocks>
+									<mvc:XMLView viewName="yatiny.ui.resources.view.Report"></mvc:XMLView>
+								</blocks>
+							</ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+				</sections>
+			</ObjectPageLayout>
+		</m:content>
+	</m:Page>
+</core:View>
