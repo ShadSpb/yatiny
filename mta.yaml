@@ -21,8 +21,21 @@ modules:
           name: core-backend
           url: '~{url}'
           forwardAuthToken: true
+
+  - name: Persistence
+    type: hdb
+    path: Persistence
+    requires:
+     - name: hdi_Persistence
+
 resources:
   - name: hdi-container
     properties:
       hdi-container-name: '${service-name}'
     type: com.sap.xs.hdi-container
+
+  - name: hdi_Persistence
+    properties:
+       hdi-container-name_2: ${service-name}
+    type: com.sap.xs.hdi-container
+
