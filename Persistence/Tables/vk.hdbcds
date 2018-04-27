@@ -1,4 +1,4 @@
-context TwitterTables {
+context VkTables {
 
     /*@@layout{"layoutInfo":{}}*/
     entity VK_STREAM {
@@ -17,7 +17,14 @@ context TwitterTables {
             SHARED_POST_TEXT          : String(2048);
             SHARED_POST_ID            : Integer64;
             TAG_LIST                  : String(1024);
+    }
+    technical configuration {
+        fulltext index VK_STREAM_VOC_XSA on (EVENT_TEXT)
+            phrase index ratio 0.2
+            language detection('EN', 'RU')
+            text analysis on;
     };
+
 
     /*@@layout{"layoutInfo":{}}*/
     entity VK_STREAM_RESULT {
@@ -41,4 +48,4 @@ context TwitterTables {
             TIME                      : LocalTime;
             FULL_TIMESTAMP            : String(10);
     };
-};   
+};

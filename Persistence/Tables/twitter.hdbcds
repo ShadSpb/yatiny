@@ -1,4 +1,4 @@
-context VkTables {
+context TwitterTables {
 
     /*@@layout{"layoutInfo":{"x":-420,"y":-116.5}}*/
     entity TWITTER_STREAM {
@@ -28,7 +28,14 @@ context VkTables {
             UserId               : Integer64;
             UserName             : String(256);
             UserUrl              : String(256);
+    }
+    technical configuration {
+        fulltext index VK_TWITTER_VOC_XSA on (Tweet)
+            language detection('EN', 'RU')
+            text analysis on
+            phrase index ratio 0.2;
     };
+
 
     /*@@layout{"layoutInfo":{"x":175,"y":-263}}*/
     entity TWITTER_STREAM_RESULT {
@@ -61,5 +68,5 @@ context VkTables {
         key Date                 : LocalDate;
         key Time                 : LocalTime;
         key Full_Timestamp       : UTCTimestamp;
-    };
+    }
 };

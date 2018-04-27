@@ -22,4 +22,4 @@ context VkTables {
         TYPE  : String(30) not null;
         VALUE : Integer    not null;
     };
-}  
+}    
