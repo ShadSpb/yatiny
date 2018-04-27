@@ -1,0 +1,25 @@
+context VkTables {
+
+    /*@@layout{"layoutInfo":{}}*/
+    entity CAMPAIGNS {
+        ID          : Integer;
+        NAME        : String(256);
+        DESCRIPTION : String(256);
+        START_TIME  : UTCTimestamp;
+        END_TIME    : UTCTimestamp;
+    };
+
+    /*@@layout{"layoutInfo":{}}*/
+    entity STREAM_CONFIG_HISTORY {
+        ID            : Integer;
+        SOURCE        : String(256);
+        CONTROL_WORDS : String(256);
+        CAMPAIGN_ID   : Integer;
+    };
+
+    /*@@layout{"layoutInfo":{"x":3,"y":-185.5}}*/
+    entity STREAM_SENTIMENTS {
+        TYPE  : String(30) not null;
+        VALUE : Integer    not null;
+    };
+}  
