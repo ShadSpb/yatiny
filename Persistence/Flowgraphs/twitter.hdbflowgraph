@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<flowgraph:ContainerNode xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:flowgraph="http://www.sap.com/ndb/flowgraph/1.0" xmi:id="af15e20b5264c25aaca31d4e59057e84" name="twitter" runtimeBehavior="BATCH_TASK">
+<flowgraph:ContainerNode xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:flowgraph="http://www.sap.com/ndb/flowgraph/1.0" xmi:version="2.0" xmi:id="af15e20b5264c25aaca31d4e59057e84" name="twitter" runtimeBehavior="BATCH_TASK">
   <annotations key="sap.afm.layout" xmi:id="cecb512eefe8f9b51ea25e4c4f6f58c4">
     <annotations xmi:id="32a19d7c5e702d53b7f0f7b1d3472a7f" key="x" value="10">
     </annotations>
@@ -11,8 +11,7 @@
     </annotations>
   </annotations>
   <annotations xmi:id="bb134447fdf2a98f74490e75e452da84" key="sap.afm.palette">
-    <annotations xmi:id="d8727c77baaa96919baca8fc8ee59288" key="additions" value="">
-    </annotations>
+    <annotations xmi:id="d8727c77baaa96919baca8fc8ee59288" key="additions" value=""/>
   </annotations>
   <annotations xmi:id="767abe65abb2f732e61f4d60b0721b06" key="sap.afm.nodeType" value="ContainerNode">
   </annotations>
