@@ -1,7 +1,0 @@
-"hdbcds" : {
-"plugin_name" : "com.sap.hana.di.cds",
-"plugin_version" : "12.1.0" },
-"hdbprocedure" : {
-"plugin_name" : "com.sap.hana.di.procedure",
-"plugin_version": "12.1.0"
-}
