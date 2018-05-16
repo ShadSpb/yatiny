@@ -1,3 +1,4 @@
+namespace yatiny.Persistence; 
 context ConfigTables {
 
     /*@@layout{"layoutInfo":{}}*/
