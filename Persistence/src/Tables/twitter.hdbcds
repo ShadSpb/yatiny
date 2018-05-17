@@ -1,4 +1,5 @@
-namespace yatiny.Persistence; 
+namespace yatiny.Persistence.Tables;
+
 context TwitterTables {
 
     /*@@layout{"layoutInfo":{"x":-420,"y":-116.5}}*/
